@@ -17,6 +17,10 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
         <link rel="stylesheet" href="style.css"/>
+       
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+       
+
     </head>
 
 <body>
@@ -26,44 +30,72 @@
           <div class="column">
               <div class="card">
                   <div class="header">
-                        <h2 style="margin-bottom :20px">My To Do List</h2>
+                            <h2 style="margin-bottom :20px">My To Do List</h2>
+                            
                             <div class="input-group mb-3">
-                              <input id="inputData" type="text" class="form-control" placeholder="New Task" value="" >
-                              <div class="input-group-append">
-                                <button id="add-btn" class="btn btn-success" type="button">Add</button>
-                              </div>
+                                <input id="inputData" type="text" class="form-control" placeholder="New Task" value="" >
+                                <div class="input-group-append">
+                                  <button id="add-btn" class="btn btn-success" type="button">Add</button>
+                                </div>
                             </div> 
+
                             <div id="myalert" class="alert alert-warning" role="alert" >
                               Please add a task !!
                             </div>
                             <!-- Task -->
-                                <div id="tasks" >
-                                  <ul >
-    
-                                    <li class="task" >
-                                         <div >
-                                          <h5 style="font-weight: 700;" >A second item </h5>
-                                          <div style="display: flex;">
-                                            <span class="material-symbols-outlined">calendar_month</span>
-                                            <span >15/02/2021</span> 
-                                          </div>
-                                        </div>
-                                        <div class="actions">
-                                        <button type="button" class="btn btn-labeled btn-success">
-                                        <span class="btn-label"><i class="fa fa-check"></i></span></button>
-                                    
-                                        <button type="button" class="btn btn-labeled btn-info">
-                                        <span class="btn-label"><i class="fa fa-refresh"></i></span></button>
-                                    
-                                        <button type="button" class="btn btn-labeled btn-danger">
-                                        <span class="btn-label"><i class="fa fa-trash"></i></span></button> 
-                                      </div>
-                                    </li>
-                                    
-                                  </ul>
+                            <div id="tasks" >
+                              <ul >
 
+                                <li class="task" >
+                                      <div >
+                                      <h5 style="font-weight: 700;" >A second item </h5>
+                                      <div style="display: flex;">
+                                        <span class="material-symbols-outlined">calendar_month</span>
+                                        <span >15/02/2021</span> 
+                                      </div>
+                                    </div>
+                                    <div class="actions">
+                                    <button type="button" class="btn btn-labeled btn-success">
+                                    <span class="btn-label"><i class="fa fa-check"></i></span></button>
+                                
+                                    <button type="button" class="btn btn-labeled btn-info">
+                                    <span class="btn-label"><i class="fa fa-refresh"></i></span></button>
+                                
+                                    <button type="button" class="btn btn-labeled btn-danger">
+                                    <span class="btn-label"><i class="fa fa-trash"></i></span></button> 
+                                  </div>
+                                </li>
+                                
+                              </ul>
+
+                            </div>
+                          <!-- //Task // -->
+                  
+
+                              <!-- Modal -->
+                              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h5 class="modal-title" id="exampleModalLabel">Confirm</h5>
+                                      <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+                                    </div>
+                                    <div class="modal-body">
+                                      <h4 id="masseg1" ></h4>
+                                      <h4 id="masseg2" ></h4>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                      <button onclick="deleteTask()" type="button" data-bs-dismiss="modal" class="btn btn-danger">Delete</button>
+                                    </div>
+                                  </div>
                                 </div>
-                              <!-- //Task // -->  
+                              </div>
+                              
+                            </div>
+                          </div>
+                        </div>  
+
                     </div>
               </div>
           </div>   

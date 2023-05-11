@@ -38,17 +38,23 @@ function closeAlert(){
 
  }
 
- 
- function submitForm() {
-    inputData.submit();
-    inputData.reset();  
-    return false; 
- }
+
+ function showms(index) {
+    let Task = tasks[index];
+    let masseg1 = document.getElementById("masseg1");
+    let masseg2 = document.getElementById("masseg2");
+    masseg2.style.fontWeight = "600";
+    masseg2.style.color = "red";
+    masseg1.innerHTML = "Are you sure you want to delete " 
+    masseg2.innerHTML = `${Task.title} ? `
+
+    }
+
 
 function addTask() {
 
-
-
+    
+        
 document.getElementById("tasks").innerHTML = '';
 
 let index = 0
@@ -81,7 +87,7 @@ for (task of tasks){
             <button onclick="editTask(${index})" type="button" class="btn btn-labeled btn-info">
             <span class="btn-label"><i class="fa fa-refresh"></i></span></button>
     
-            <button onclick="deleteTask(${index})" type="button" class="btn btn-labeled btn-danger">
+            <button onclick="showms(${index})" type="button" class="btn btn-labeled btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
             <span class="btn-label"><i class="fa fa-trash"></i></span></button>
         </div>
         </li>
@@ -90,6 +96,8 @@ for (task of tasks){
 
     </div>
   <!-- //Task // -->
+
+  
     
     `
 document.getElementById("tasks").innerHTML += content
@@ -136,14 +144,21 @@ document.getElementById("add-btn").addEventListener("click", () => {
 });
 
 function deleteTask(index) {
-    let Task = tasks[index];
-    let isConfirm =  confirm("Are you sure you want to delete " + Task.title + " ?");
-    if (isConfirm) {
-        tasks.splice(index, 1);
-        storeTasks();
-        addTask();
+    tasks.splice(index, 1);
+    storeTasks();
+    addTask();
+   
+       
     }        
-}
+
+    // let Task = tasks[index];
+    // let isConfirm =  confirm("Are you sure you want to delete " + Task.title + " ?");
+    // if (isConfirm) {
+    //     tasks.splice(index, 1);
+    //     storeTasks();
+    //     addTask();
+    // }        
+
 	
 function editTask(index) {
     let Task = tasks[index];
