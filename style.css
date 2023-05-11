@@ -40,7 +40,7 @@ body {
   padding: 16px;
   text-align: center;
   background-color: #f1f1f1;
-  width: 800px;
+  width: 700px;
   margin-top: 40px;
 }
 
@@ -94,6 +94,7 @@ ul li.checked::before {
   display: flex;
   align-items: center;
   justify-content: space-between;
+
 }
 
 
@@ -106,3 +107,18 @@ color: white;
 margin-left: 25%;
 
   }
+
+.alert {
+  display: none;
+}
+
+.done {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgb(181, 241, 175);
+}
+
+.done2 {
+  text-decoration: line-through;
+}

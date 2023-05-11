@@ -27,7 +27,23 @@ function getDate() {
 
 getDate();
 
+function closeAlert(){
+    const alert = document.getElementById('myalert')
+    alert.style.display = "block"
 
+    setTimeout(function(){ 
+        alert.style.display = "none"
+
+    }, 3000);
+
+ }
+
+ 
+ function submitForm() {
+    inputData.submit();
+    inputData.reset();  
+    return false; 
+ }
 
 function addTask() {
 
@@ -44,13 +60,13 @@ for (task of tasks){
     <div id="tasks" >
       <ul >
 
-        <li class="task" >
-             <div >
-              <h5 style="font-weight: 700;" >${task.title}</h5>
-              <div style="display: flex;">
-                <span class="material-symbols-outlined">calendar_month</span>
-                <span >${task.date}</span> 
-              </div>
+        <li class="task ${task.isDone ? 'done' : ''}" >
+            <div class="${task.isDone ? 'done2' : ''}">
+                <h5 style="font-weight: 700;" >${task.title}</h5>
+                <div style="display: flex;">
+                    <span class="material-symbols-outlined">calendar_month</span>
+                    <span >${task.date}</span> 
+                </div>
             </div>
 
             <div class="actions"  >
@@ -83,7 +99,6 @@ index++;
 }
 
 
-
 addTask();
 
 
@@ -91,7 +106,7 @@ document.getElementById("add-btn").addEventListener("click", () => {
     let inputData = document.getElementById("inputData").value;
     
     if(inputData == ""){
-        alert("Please enter a task !!");
+        closeAlert()
 
      } else{
 
@@ -111,9 +126,12 @@ document.getElementById("add-btn").addEventListener("click", () => {
         localStorage.setItem("tasks", tasksString);
         storeTasks();
         addTask();
+
+        document.getElementById('inputData').value = ''
        
     }
 
+    
    
 });
 
@@ -147,5 +165,7 @@ function storeTasks() {
     let tasksString = JSON.stringify(tasks);
     localStorage.setItem("tasks", tasksString);
 }
+
+
 
 
